@@ -12,6 +12,7 @@ import { CommentCheckerConfigSchema } from "./comment-checker"
 import { BuiltinCommandNameSchema } from "./commands"
 import { ExperimentalConfigSchema } from "./experimental"
 import { GitMasterConfigSchema } from "./git-master"
+import { ImplementationTeamConfigSchema } from "./impl-team"
 import { NotificationConfigSchema } from "./notification"
 import { OpenClawConfigSchema } from "./openclaw"
 import { ModelCapabilitiesConfigSchema } from "./model-capabilities"
@@ -69,6 +70,7 @@ export const OhMyOpenCodeConfigSchema = z.object({
     include_co_authored_by: true,
     git_env_prefix: "GIT_MASTER=1",
   }),
+  implementation_team: ImplementationTeamConfigSchema.optional(),
   browser_automation_engine: BrowserAutomationConfigSchema.optional(),
   websearch: WebsearchConfigSchema.optional(),
   tmux: TmuxConfigSchema.optional(),
