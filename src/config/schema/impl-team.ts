@@ -47,9 +47,9 @@ export const ImplementationTeamConfigSchema = z.object({
   roles: z.array(RoleConfigSchema).optional(),
   max_ordinary_rounds: z.number().int().min(1).max(5).default(2),
   escalation: EscalationConfigSchema.optional(),
-  resource_caps: ResourceCapsConfigSchema.optional().default({}),
-  pass_policy: PassPolicyConfigSchema.optional().default({}),
-  blocker_policy: BlockerPolicyConfigSchema.optional().default({}),
+  resource_caps: ResourceCapsConfigSchema.default(() => ({ max_total_spawned_tasks: 50, max_reviewers_per_role: 5, max_roles: 3 })),
+  pass_policy: PassPolicyConfigSchema.default(() => ({ require_all_roles_pass: true })),
+  blocker_policy: BlockerPolicyConfigSchema.default(() => ({ any_blocker_fails_role: true })),
 })
 
 export type ImplementationTeamConfig = z.infer<typeof ImplementationTeamConfigSchema>
