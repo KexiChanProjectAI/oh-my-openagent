@@ -1,15 +1,15 @@
 # CLI Reference
 
-Complete reference for the published `oh-my-opencode` CLI. During the rename transition, OpenCode plugin registration now prefers `oh-my-openagent` inside `opencode.json`.
+Complete reference for the published `@zenkexi/oh-my-openagent` CLI. During the rename transition, OpenCode plugin registration now prefers `oh-my-openagent` inside `opencode.json`.
 
 ## Basic Usage
 
 ```bash
 # Display help
-bunx oh-my-opencode
+bunx @zenkexi/oh-my-openagent
 
 # Or with npx
-npx oh-my-opencode
+npx @zenkexi/oh-my-openagent
 ```
 
 ## Commands
@@ -33,7 +33,7 @@ Interactive installation tool for initial Oh My OpenCode setup. Provides a TUI b
 ### Usage
 
 ```bash
-bunx oh-my-opencode install
+bunx @zenkexi/oh-my-openagent install
 ```
 
 ### Installation Process
@@ -76,7 +76,7 @@ The doctor command detects common issues including:
 ### Usage
 
 ```bash
-bunx oh-my-opencode doctor
+bunx @zenkexi/oh-my-openagent doctor
 ```
 
 ### Diagnostic Categories
@@ -99,7 +99,7 @@ bunx oh-my-opencode doctor
 ### Example Output
 
 ```
-oh-my-opencode doctor
+oh-my-openagent doctor
 
 ┌──────────────────────────────────────────────────┐
 │  Oh-My-OpenAgent Doctor                           │
@@ -133,7 +133,7 @@ Run opencode with todo/background task completion enforcement. Unlike 'opencode 
 ### Usage
 
 ```bash
-bunx oh-my-opencode run <message>
+bunx @zenkexi/oh-my-openagent run <message>
 ```
 
 ### Options
@@ -160,7 +160,7 @@ Show current installed version and check for updates.
 ### Usage
 
 ```bash
-bunx oh-my-opencode get-local-version
+bunx @zenkexi/oh-my-openagent get-local-version
 ```
 
 ### Options
@@ -187,7 +187,7 @@ Show version information.
 ### Usage
 
 ```bash
-bunx oh-my-opencode version
+bunx @zenkexi/oh-my-openagent version
 ```
 
 `--on-complete` runs through your current shell when possible: `sh` on Unix shells, `pwsh` for PowerShell on non-Windows, `powershell.exe` for PowerShell on Windows, and `cmd.exe` as the Windows fallback.
@@ -202,16 +202,16 @@ Manages OAuth 2.1 authentication for remote MCP servers.
 
 ```bash
 # Login to an OAuth-protected MCP server
-bunx oh-my-opencode mcp oauth login <server-name> --server-url https://api.example.com
+bunx @zenkexi/oh-my-openagent mcp oauth login <server-name> --server-url https://api.example.com
 
 # Login with explicit client ID and scopes
-bunx oh-my-opencode mcp oauth login my-api --server-url https://api.example.com --client-id my-client --scopes read write
+bunx @zenkexi/oh-my-openagent mcp oauth login my-api --server-url https://api.example.com --client-id my-client --scopes read write
 
 # Remove stored OAuth tokens
-bunx oh-my-opencode mcp oauth logout <server-name> --server-url https://api.example.com
+bunx @zenkexi/oh-my-openagent mcp oauth logout <server-name> --server-url https://api.example.com
 
 # Check OAuth token status
-bunx oh-my-opencode mcp oauth status [server-name]
+bunx @zenkexi/oh-my-openagent mcp oauth status [server-name]
 ```
 
 ### Options
@@ -235,7 +235,7 @@ The runtime loads user config as the base config, then merges project config on 
 1. **Project Level**: `.opencode/oh-my-openagent.jsonc`, `.opencode/oh-my-openagent.json`, `.opencode/oh-my-opencode.jsonc`, or `.opencode/oh-my-opencode.json`
 2. **User Level**: `~/.config/opencode/oh-my-openagent.jsonc`, `~/.config/opencode/oh-my-openagent.json`, `~/.config/opencode/oh-my-opencode.jsonc`, or `~/.config/opencode/oh-my-opencode.json`
 
-**Naming Note**: The published package and binary are still `oh-my-opencode`. Inside `opencode.json`, the compatibility layer now prefers the plugin entry `oh-my-openagent`. Plugin config loading recognizes both `oh-my-openagent.*` and legacy `oh-my-opencode.*` basenames. If both basenames exist in the same directory, the legacy `oh-my-opencode.*` file currently wins.
+**Naming Note**: The published package is `@zenkexi/oh-my-openagent` and the binary is `oh-my-openagent`. Inside `opencode.json`, the compatibility layer now prefers the plugin entry `oh-my-openagent`. Plugin config loading recognizes both `oh-my-openagent.*` and legacy `oh-my-opencode.*` basenames. If both basenames exist in the same directory, the legacy `oh-my-opencode.*` file currently wins.
 
 ### Filename Compatibility
 
@@ -283,20 +283,20 @@ bun install -g opencode@latest
 
 ```bash
 # Reinstall plugin
-bunx oh-my-opencode install
+bunx @zenkexi/oh-my-openagent install
 ```
 
 ### Doctor Check Failures
 
 ```bash
 # Diagnose with detailed information
-bunx oh-my-opencode doctor --verbose
+bunx @zenkexi/oh-my-openagent doctor --verbose
 
 # Show compact system dashboard
-bunx oh-my-opencode doctor --status
+bunx @zenkexi/oh-my-openagent doctor --status
 
 # JSON output for scripting
-bunx oh-my-opencode doctor --json
+bunx @zenkexi/oh-my-openagent doctor --json
 ```
 
 ### "Using legacy package name" Warning
@@ -317,7 +317,7 @@ Refreshes the cached model capabilities snapshot from models.dev. This updates t
 ### Usage
 
 ```bash
-bunx oh-my-opencode refresh-model-capabilities
+bunx @zenkexi/oh-my-openagent refresh-model-capabilities
 ```
 
 ### Options
@@ -351,10 +351,10 @@ Use JSON output for CI or scripted diagnostics.
 
 ```bash
 # Run doctor in CI environment
-bunx oh-my-opencode doctor --json
+bunx @zenkexi/oh-my-openagent doctor --json
 
 # Save results to file
-bunx oh-my-opencode doctor --json > doctor-report.json
+bunx @zenkexi/oh-my-openagent doctor --json > doctor-report.json
 ```
 
 ---
